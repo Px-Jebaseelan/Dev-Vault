@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 
 export default async function ProfilePage() {
   const session = await auth()
-  
+
   if (!session?.user?.id) {
     redirect("/login")
   }
@@ -20,10 +20,12 @@ export default async function ProfilePage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-8">
+    <div className="max-w-2xl mx-auto space-y-8 animate-fadeInUp">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Profile Settings</h1>
-        <p className="text-slate-400 mt-2">Update your personal information and public profile.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Profile Settings</h1>
+        <p className="text-white/40 mt-1 text-sm">
+          Manage your public developer profile and account details.
+        </p>
       </div>
       <ProfileForm user={user} />
     </div>
